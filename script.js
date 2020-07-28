@@ -1,9 +1,11 @@
-let generatedPinNumber , count = 4 ;
+let generatedPinNumber , count ;
 
 function createRandomPin(){
     const randomPin = Math.floor(1000 + Math.random() * 9000);
     generatedPinNumber = document.getElementById("generatedPinNumber").value= randomPin;
-    //return generatedPinNumber;
+    document.getElementById("inputPinNumber").value= "";
+    count = 3;
+    document.getElementById('actionLeft').style.display = 'none';
 }
 
 function enterPinHandler(num){
@@ -15,7 +17,7 @@ function enterPinHandler(num){
 function submitBtnHandler(){
     let getInputNumber = document.getElementById("inputPinNumber");
     let inputNumber = parseInt(getInputNumber.value);
-    if ( count >= 0) { // 4,3,2,1,0
+    if ( count >= 0) { 
         if( inputNumber == generatedPinNumber ){
             document.getElementById('match').style.display = 'block'; 
             document.getElementById('wrondInput').style.display = 'none'; 
@@ -26,13 +28,13 @@ function submitBtnHandler(){
             document.getElementById('match').style.display = 'none'; 
             getInputNumber.value = "";
             document.getElementById('actionLeft').style.display = 'block';
-                if (count > 1){
-                document.getElementById('actionLeft').innerText = count - 1 + 'try left'; //3,2,1,0
+                if (count >= 1){
+                document.getElementById('actionLeft').innerText = count + 'try left'; 
                 }
                 else{
                     document.getElementById("actionLeft").innerText = 'Please reload this page & try again'; 
                 }
-            count = count -1  ; // 3,2,1,0
+            count = count -1  ; 
         }
     }    
 }
