@@ -1,4 +1,4 @@
-let generatedPinNumber , count ;
+let generatedPinNumber , count = 3 ;
 
 function createRandomPin(){
     const randomPin = Math.floor(1000 + Math.random() * 9000);
